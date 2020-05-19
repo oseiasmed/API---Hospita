@@ -7,7 +7,7 @@ router.get("/pacientes/cadastar", (req, res) => {
     res.render("pacientes/new")
 })
 
-// List Patients
+// List Patients /**/
 
 router.get("/pacientes", (req, res, next) => {
 
