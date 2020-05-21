@@ -9,6 +9,9 @@ const Paciente = require("./models/Paciente");
 
 const session = require("express-session");
 
+const cors = require("cors");
+app.use(cors());
+
 // View engine
 
 app.set('view engine', 'ejs');
