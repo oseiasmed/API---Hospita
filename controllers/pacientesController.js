@@ -1,10 +1,11 @@
 const express = require("express");
-const router = express.Router();
+
+const authentication = require("../middlewares/adminauth");
 const Paciente = require("../models/Paciente");
 
 // Listar pacientes
 
-router.get("/pacientes", (req, res) => {
+exports.index = (req, res) => {
 
     Paciente.findAll().then(pacientes => {
 
@@ -15,6 +16,8 @@ router.get("/pacientes", (req, res) => {
         res.status(400).send('Erro ao listar os pacientes');
 
     });
-});
+}
 
-module.exports = router;
+
+
+
