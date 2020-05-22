@@ -18,11 +18,12 @@ router.post("/authenticate", (req, res) => {
             var correct = bcrypt.compareSync(password, user.password);
 
             if (correct) {
+
                 req.session.user = {
 
                     id: user.id,
                     email: user.email
-                }
+                };
 
                 jwt.sign({ id: user.id, email: user.email }, JWTSecret, { expiresIn: '24h' }, (error, token) => {
 
@@ -34,9 +35,9 @@ router.post("/authenticate", (req, res) => {
                     } else {
 
                         res.status(200);
-                        res.json({ token: token })
+                        res.json({ token: token });
 
-                    }
+                    };
                 });
 
             } else {
@@ -49,7 +50,7 @@ router.post("/authenticate", (req, res) => {
 
             res.status(401);
             res.json({ err: "Credenciais inválidas" });
-        }
+        };
     });
 
 });

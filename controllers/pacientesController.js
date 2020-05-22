@@ -43,6 +43,7 @@ exports.index = (req, res, next) => {
 exports.update = (req, res) => {
 
     var id = req.params.id;
+
     var { nome, cpf, endereco, numero, dtnascimento, complemento, bairro, cidade, uf } = req.body;
 
     Paciente.update({
@@ -62,9 +63,9 @@ exports.update = (req, res) => {
 
     }).catch(error => {
 
-        res.status(400).send("Erro ao editar paciente " + error)
+        res.status(400).send("Erro ao editar paciente " + error);
 
-    })
+    });
 };
 
 // Deletar pacientes
@@ -80,12 +81,14 @@ exports.delete = (req, res, next) => {
             Paciente.destroy({
 
                 where: {
+
                     id: id
                 }
+
             }).then(() => {
 
                 res.status(200);
-                res.send("Paciente removido com sucesso.")
+                res.send("Paciente removido com sucesso.");
             });
 
         } else {
@@ -96,7 +99,7 @@ exports.delete = (req, res, next) => {
     } else {
 
         res.status(400);
-    }
+    };
 };
 
 

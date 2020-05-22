@@ -22,7 +22,6 @@ exports.store = (req, res, next) => {
     });
 };
 
-
 // Listar hospitais
 
 exports.index = (req, res, next) => {
@@ -37,7 +36,6 @@ exports.index = (req, res, next) => {
 
     });
 };
-
 
 // Editar hospitais
 
@@ -63,9 +61,9 @@ exports.update = (req, res) => {
 
     }).catch(error => {
 
-        res.status(400).send("Erro ao editar hospital " + error)
+        res.status(400).send("Erro ao editar hospital " + error);
 
-    })
+    });
 };
 
 // Deletar hospitais
@@ -81,12 +79,14 @@ exports.delete = (req, res, next) => {
             Hospital.destroy({
 
                 where: {
+
                     id: id
                 }
+
             }).then(() => {
 
                 res.status(200);
-                res.send("Hospital removido com sucesso.")
+                res.send("Hospital removido com sucesso.");
             });
 
         } else {

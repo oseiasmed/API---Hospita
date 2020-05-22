@@ -7,25 +7,29 @@ const Status = require("../models/Status");
 const Consulta = connection.define('consultas', {
 
     hospitalId: {
+
         type: Sequelize.INTEGER,
         allowNull: false
     },
 
     pacienteId: {
+
         type: Sequelize.INTEGER,
         allowNull: false
     },
 
     statusId: {
+
         type: Sequelize.INTEGER,
         allowNull: false
     },
 
     dtconsulta: {
+
         type: Sequelize.DATE,
         allowNull: false
 
-    }
+    },
 });
 
 Paciente.hasMany(Consulta); 
