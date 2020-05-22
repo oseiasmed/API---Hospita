@@ -8,4 +8,3 @@ router.put('/pacientes/:id', PacientesController.update);
 router.delete('/pacientes', PacientesController.delete);
 
 module.exports = router;
-
