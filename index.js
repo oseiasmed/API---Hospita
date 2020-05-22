@@ -5,9 +5,10 @@ const connection = require("./database/database");
 
 // Routes
 const pacientesRouter = require("./routes/pacientesRoutes");
-//const consultasRouter = require("./routes/consultasRouter");
+const consultasRouter = require("./routes/consultasRouter");
 const hospitaisRouter = require("./routes/hospitaisRouter");
 
+//Cors
 const cors = require("cors");
 app.use(cors());
 
@@ -17,15 +18,15 @@ app.use(bodyParser.json());
 
 // Using Routes
 app.use("/", pacientesRouter);
-// app.use("/", consultasRouter);
+app.use("/", consultasRouter);
 app.use("/", hospitaisRouter);
 
-// Database Authentication
 
+// Database Authentication
 connection
 
     .authenticate()
-    
+
     .then(() => {
 
         console.log("Conexão feita com sucesso!");
@@ -33,9 +34,14 @@ connection
     }).catch((error) => {
 
         console.log(error);
+
     })
 
 app.listen(3000, () => {
 
     console.log("O servidor está rodando!");
+
 });
+
+module.exports = app;
+
